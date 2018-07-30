@@ -12,6 +12,8 @@ var server = http.createServer(function (request, response) {
         type = 'text/javascript';
     } else if (path.endsWith('.ico')) {
         type = 'image/x-icon';
+    } else if (path.endsWith('.json')) {
+        type = 'text/plain';
     }
     
     if (!type) {
