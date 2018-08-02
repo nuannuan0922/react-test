@@ -8,11 +8,16 @@ var server = http.createServer(function (request, response) {
     var type = '';
     if (path.endsWith('.html')) {
         type = 'text/html';
-    } else if (path.endsWith('.js')) {
+    }
+    else if (path.endsWith('.js')) {
         type = 'text/javascript';
-    } else if (path.endsWith('.ico')) {
+    }
+    else if (path.endsWith('.ico')) {
         type = 'image/x-icon';
-    } else if (path.endsWith('.json')) {
+        //todo
+        path = '/favicon.ico';
+    }
+    else if (path.endsWith('.json')) {
         type = 'text/plain';
     }
     
