@@ -8,11 +8,11 @@ export const DECREMENT = 'DECREMENT';
 
 export default function (state, action) {
     switch (action.type) {
-        case INCREASE_ASYNC:
-            // return asyncHandler(state, action);
-            return Object.assign({}, state, {
-                count: state.count+1
-            });
+        // case INCREASE_ASYNC:
+        //     // return asyncHandler(state, action);
+        //     return Object.assign({}, state, {
+        //         count: state.count+1
+        //     });
         case INCREASE:
             return Object.assign({}, state, {
                 count: state.count+1

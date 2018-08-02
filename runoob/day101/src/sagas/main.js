@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+import { createStore,applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import React, {Component} from 'react';
 
-import sagas from './sagas';
+import rootSagas from './sagas';
 import reducer from './reducer';
 import Counter from './Counter';
 
@@ -12,8 +12,6 @@ const INCREASE_ASYNC = 'INCREASE_ASYNC';
 const INCREASE = 'INCREASE';
 const DECREMENT = 'DECREMENT';
 
-// var sagaMiddleware = createSagaMiddleware(sagas);
-// var store = createStore(combineReducers, applyMiddleware(sagaMiddleware));
 
 function mapStateToProps(state = { count: 0 }) {
     return {
@@ -23,22 +21,19 @@ function mapStateToProps(state = { count: 0 }) {
 
 function mapDispatchToState(dispatch) {
     return () => ({
-        increateAsyncHandler: () => dispatch({ type: INCREASE_ASYNC}),
+        increateAsyncHandler: () => {dispatch({ type: INCREASE_ASYNC })},
         increateHandler: () => dispatch({type: INCREASE}),
         decrementHandler: () => dispatch({type: DECREMENT})
     })
 }
 
-// function action(type) {
-//     return {
-//         type: type
-//     }
-// }
-
 let Container = connect(mapStateToProps, mapDispatchToState)(Counter);
+let sagaMiddleware = createSagaMiddleware(rootSagas);
+let middlewares = [sagaMiddleware];
 let store = createStore(reducer, {
     count: 0
-});
+}, applyMiddleware(...middlewares));
+sagaMiddleware.run(rootSagas);
 
 export default class sdf extends Component {
     render() {
