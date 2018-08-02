@@ -1,6 +1,6 @@
-Const LOGIN_USER = 'LOGIN_USER';
-Const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
-Const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE';
+const LOGIN_USER = 'LOGIN_USER';
+const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE';
 export const auth = (state, action = {}) => {
     switch (action.type) {
         case LOGIN_USER: 
@@ -20,7 +20,7 @@ export const auth = (state, action = {}) => {
                 error: action.data
             })
         default: 
-            return Object.assign({}, state);
+            return Object.assign({}, state)
 
     }
 }

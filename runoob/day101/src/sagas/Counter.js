@@ -1,4 +1,4 @@
-import React, {Component} from 'React';
+import React, {Component} from 'react';
 
 class Counter extends Component {
     render() {
@@ -11,10 +11,8 @@ class Counter extends Component {
                 {' '}
                 <button onClick={props.decrementHandler}>Decrement</button>
                 {' '}
-                <p>Clicked : {value} times.</p>
+                <p>Clicked : {props.value} times.</p>
             </div>
-            
-
         );
     }
 }
