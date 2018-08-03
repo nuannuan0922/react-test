@@ -81,5 +81,9 @@ react test demo
 
 # 待看
 1. https://www.cnblogs.com/demodashi/p/8476741.html
-2. 
+2. https://github.com/ReactTraining/react-router
+3. http://elm-lang.org/blog/farewell-to-frp
+4. mobx: https://github.com/mobxjs/mobx
+5. rxjs
+6. 
 
